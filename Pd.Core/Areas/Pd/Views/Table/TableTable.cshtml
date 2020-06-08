@@ -1,0 +1,116 @@
+﻿
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/Table/icon.css" rel="stylesheet" />
+<link href="~/css/table/index.css" rel="stylesheet" />
+<link href="~/css/table/left-side-menu.css" rel="stylesheet" />
+<div class="outer-screen" shortcut="4">
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-list">
+            <div class="left-side-menu">
+
+                <div class="lsm-container">
+                    <div class="lsm-scroll">
+                        <div class="lsm-sidebar">
+                            <p style="text-align:right;margin:0;"><img id="addProject" style="height:20px;border-radius:4px;margin-right: 10px;" src="~/images/add.jpg" /></p>
+                            <!--菜单-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <div class="header-button">
+                <div class="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">搜索</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+                <div class="common-table add-table">新增表</div>
+                <div class="common-table del-table">删除表</div>
+                <div class="common-table create-sql">生成sql语句</div>
+            </div>
+            <div class="table-outer">
+            </div>
+        </div>
+    </div>
+    <div class="screen-model"></div>
+    <div class="message-model"></div>
+    <div class="sql-model"></div>
+    <div class="common-pop pop-model">
+        <div class="pop-title">
+            <div class="add-title">新增表</div>
+            <i class="iconfont cancle">&#xe687;</i>
+        </div>
+        <div class="pop-cotent">
+            <div class="line-pop">
+                <label><span>*</span>表头名称</label>
+                <input type="text" placeholder="请输入数据库表头名称" />
+            </div>
+        </div>
+        <div class="pop-button">
+            <button class="cancle">取消</button>
+            <button class="submit">确定</button>
+        </div>
+    </div>
+    <div class="common-pop pop-message">
+        <div class="pop-title">
+            <div class="add-title">提示</div>
+            <i class="iconfont cancle-message">&#xe687;</i>
+        </div>
+        <div class="pop-cotent">
+            <div class="line-pop del-pop">
+                此操作将永久删除该内容，是否继续？
+            </div>
+        </div>
+        <div class="pop-button">
+            <button class="cancle-message">取消</button>
+            <button class="submit-message">确定</button>
+        </div>
+    </div>
+    <div class="common-pop sql-message">
+        <div class="pop-title">
+            <div class="add-title" >生成sql</div>
+            <i class="iconfont submit-sql">&#xe687;</i>
+        </div>
+        <div class="pop-cotent">
+            <textarea id="textSql" readonly></textarea>
+        </div>
+        <div class="pop-button">
+            <!-- <button class="cancle-sql">取消</button> -->
+            <button class="submit-sql">确定</button>
+        </div>
+    </div>
+</div>
+<!--字段跳转页-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:80%;">
+        <div class="modal-content">
+
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+<!--项目新增跳转页-->
+<div class="modal fade" id="projectView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:30%;">
+        <div class="modal-content">
+
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Table/index.js"></script>
+<script src="~/js/Table/jquery.slimscroll.min.js"></script>
+<script src="~/js/Table/left-side-menu.js"></script>
+
+
+
+

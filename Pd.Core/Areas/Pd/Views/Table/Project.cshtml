@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="modal-header">
+
+    <button type="button"id="close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+    <h4 class="modal-title">新增项目</h4>
+
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="name">项目名称</label>
+        <input type="text" class="form-control" id="name" placeholder="请输入项目名称">
+    </div>
+    <button id="submit" class="btn btn-block">提交</button>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $(document).on("click", "#submit", function () {
+           
+            $.ajax({
+                type: "post",
+                url: "/Pd/Table/AddProject",
+                data: { "name": $("#name").val() },
+                success: function (data) {
+                    if (data.success == 1) {
+                        alert("保存成功!");
+                        //$("#close").click();//关闭模态框
+                    }
+                }
+            })
+
+        })
+    })
+
+</script>

@@ -1,0 +1,143 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Pd.Core.Areas.Pd.Models.BaseModel;
+@using Newtonsoft.Json;
+@{
+    var Result = ViewData["Result"] as List<TableField>;
+    var CommonType = ViewData["CommonType"] as List<CommonType>;
+    if (CommonType == null || CommonType.Count < 1)
+    {
+        //跳转页面
+        return;
+    }
+    var TrueOrFalse = CommonType.Where(p => p.CommonBrlong == "TrueOrFalse").ToList();
+    var FiledType = CommonType.Where(p => p.CommonBrlong == "FiledType").ToList();
+    if (TrueOrFalse == null || FiledType == null || TrueOrFalse.Count < 1 || FiledType.Count < 1)
+    {
+        //跳转页面
+        return;
+    }
+
+}
+
+<link href="~/css/table/table.css" rel="stylesheet" />
+@{
+    int count = Result.Where(p => p.FieldlKey == "1").Count();
+    if (count < 1)
+    {
+        <div class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">
+                &times;
+            </a>
+            <strong>警告！</strong>您还未设置表主键,请尽快设置主键！;
+        </div>
+    }
+
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">详细信息</h4>
+
+</div>
+@{
+    <div class="modal-body">
+        <input value="@ViewData["tableId"]" id="tableId" style="display:none">
+        <div class="table-design">
+            <table class="des-table" cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                    <tr>
+                        <th style="display:none;">字段id</th>
+                        <th>字段名称</th>
+                        <th width="150px">主键</th>
+                        <th>说明</th>
+                        <th width="150px">字段类型</th>
+                        <th>长度</th>
+                        <th>默认值</th>
+                        <th width="150px">允许为null</th>
+                        <th>关联表</th>
+                        <th width="150px">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Result.Count > 0)
+                    {
+
+                        foreach (var item in Result)
+                        {
+                            <tr id="@item.FieldId">
+                                <td style="display:none">
+                                    <input type="text" class="modify-status" fid="FieldId">
+                                    <div>@item.FieldId</div>
+                                </td>
+                                <td>
+                                    <input type="text" class="modify-status" fid="FieldName">
+                                    <div>@item.FieldName</div>
+                                </td>
+                                <td>
+                                    <select fid="FieldlKey">
+                                        @foreach (var a in TrueOrFalse)
+                                        {
+                                            <option value="@a.CommonValue">@a.CommonName</option>
+                                        }
+                                    </select>
+                                    <div val="@item.FieldlKey">@TrueOrFalse.Where(p => p.CommonValue == item.FieldlKey).FirstOrDefault().CommonName</div>
+
+                                </td>
+                                <td>
+                                    <input type="text" class="modify-status" fid="FieldExplain">
+                                    <div>@item.FieldExplain</div>
+                                </td>
+                                <td>
+                                    <select fid="FieldType">
+                                        @foreach (var a in FiledType)
+                                        {
+                                            <option value="@a.CommonValue">@a.CommonName</option>
+                                        }
+                                    </select>
+                                    <div val="@item.FieldType">@FiledType.Where(p => p.CommonValue == item.FieldType).FirstOrDefault().CommonName</div>
+                                </td>
+                                <td>
+                                    <input type="text" class="modify-status" fid="FieldLength">
+                                    <div>@item.FieldLength</div>
+                                </td>
+                                <td>
+                                    <input type="text" class="modify-status" fid="FieldDefultValue">
+                                    <div>@item.FieldDefultValue</div>
+                                </td>
+                                <td>
+                                    <select fid="FieldIsNull">
+                                        @foreach (var a in TrueOrFalse)
+                                        {
+                                            <option value="@a.CommonValue">@a.CommonName</option>
+                                        }
+
+                                    </select>
+                                    <div val="@item.FieldIsNull">@TrueOrFalse.Where(p => p.CommonValue == item.FieldIsNull).FirstOrDefault().CommonName</div>
+                                </td>
+                                <td>
+                                    <input type="text" class="modify-status" fid="FieldContentId">
+                                    <div>@item.FieldContentId</div>
+                                </td>
+                                <td class="none">
+                                    <button class="modify">修改</button>
+                                    <button class="delete">删除</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+
+                </tbody>
+            </table>
+            <button class="add-line">新增</button>
+        </div>
+    </div>
+}
+
+<script src="~/js/table/table.js"></script>
+
+
+

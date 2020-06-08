@@ -1,0 +1,91 @@
+.table-design {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size:12px;
+}
+.des-table {
+    flex: 1;
+    border-top: 1px solid #e8eaec;
+    border-left: 1px solid #e8eaec;
+}
+.des-table tr th, .des-table tr td {
+    text-align: left;
+    border-right: 1px solid #e8eaec;
+    border-bottom: 1px solid #e8eaec;
+    padding: 8px 15px;
+}
+.des-table tr td {
+    background: #fff;
+}
+.des-table tr th {
+    /* background: #F8F8F9; */
+    background: #364A5F;
+    color: #fff;
+}
+.des-table tbody tr td button {
+    border-radius: 5px;
+    padding: 6px 10px;
+    border: 0;
+    color: #fff;
+}
+.des-table tbody tr td .main-about {
+   
+    padding: 4px 0px;
+    border-radius: 5px;
+    border: 1px solid #DCDEE2;
+}
+.des-table tbody tr td .modify {
+    background: #2D8CF0;
+}
+.des-table tbody tr td .delete {
+    background: #ED4014;
+    margin-left: 15px;
+}
+.des-table tbody tr td select {
+    width: 70%;
+    height: 30px;
+    border: 1px solid #DCDEE2;
+    border-radius: 5px;
+    display: none;
+}
+.des-table tbody tr td .data-type {
+    display: none;
+}
+.des-table tbody tr td .modify-status {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    display: none;
+}
+
+.des-table tbody .add-new td .modify-status {
+    display: block;
+}
+.add-new td .new-content {
+    display: none;
+}
+.amodify {
+    background: #2D8CF0;
+}
+.adelete {
+    background: #ED4014;
+    margin-left: 15px;
+}
+.des-table tbody .add-new td select {
+    display: block;
+}
+.table-design .add-line {
+    width: 90px;
+    height: 30px;
+    background: #fff;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #DCDEE2;
+    border-radius: 5px;
+    margin-top: 20px;
+    /* outline: 0; */
+}

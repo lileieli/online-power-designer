@@ -1,0 +1,59 @@
+﻿@{
+
+    Layout = null;
+}
+
+    <html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title>表结构设计</title>
+
+        <link href="~/css/Index/css.css" rel="stylesheet" />
+        <link href="~/css/Index/jquery.tool.css" rel="stylesheet" />
+        <link href="~/css/Index/smartMenu.css" rel="stylesheet" />
+        <script src="~/js/Index/jquery-1.6.2.min.js"></script>
+        <script src="~/js/Index/jquery.tool.js"></script>
+        <script src="~/js/Index/shortcut.js"></script>
+        <script src="~/js/Index/templates.js"></script>
+        <script src="~/js/Index/jquery-smartMenu.js"></script>
+        <script src="~/js/Index/core.js"></script>
+
+        <script type="text/javascript">
+
+            //$(document.body).append('<div class="bgloader" style="background:url(img/ui/loader.gif) no-repeat #fff center;z-index:10000;position:absolute;top:0;left:0;width:100%;height:100%"></div>');
+
+            $().ready(function () {
+
+                //IE下禁止选中
+                document.body.onselectstart = document.body.ondrag = function () { return false; }
+
+                //初始化
+
+                Core.init();
+
+            });
+
+        </script>
+
+    </head>
+
+    <body id="lxcn" style="background:url(/images/background.jpg) repeat right bottom transparent;background-size:100%;">
+
+        <div id="task-bar">
+
+            <ul class="task-window">
+            </ul>
+
+            <ul class="task-panel">
+
+                <li class="sys" title="系统设定"><b class="">系统设定</b></li>
+            </ul>
+        </div>
+        <div id="desk"><ul></ul></div>
+
+    </body>
+
+    </html>
